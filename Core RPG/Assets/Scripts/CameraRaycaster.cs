@@ -10,31 +10,33 @@ public class CameraRaycaster : MonoBehaviour
     [SerializeField] // keeps it private 
     float distanceToBackground = 100f;
 
-    Camera viewCamera;
+    Camera viewCamera; 
 
-    RaycastHit m_hit;
-    public RaycastHit hit
+    RaycastHit m_hit; // structure used to get information back from a raycast
+    public RaycastHit hit // returns the raycast on what it hits
     {
         get { return m_hit; }
     }
 
     Layer m_layerHit;
     public Layer layerHit
+    Layer m_layerHit; // Referece to layer
     {
         get { return m_layerHit; }
     }
 
     void Start() // TODO Awake?
     {
-        viewCamera = Camera.main;
+        viewCamera = Camera.main; // On Start, we initialize the maon camera
     }
 
     void Update()
     {
-        // Look for and return priority layer hit
-        foreach (Layer layer in layerPriorities)
+        // Look for and return priority layer hit 
+        foreach (Layer layer in layerPriorities) // Checks each layer in "Layer"
         {
-            var hit = RaycastForLayer(layer);
+            //if this hits a layer, return it.
+            var hit = RaycastForLayer(layer); 
             if (hit.HasValue)
             {
                 m_hit = hit.Value;
@@ -45,7 +47,7 @@ public class CameraRaycaster : MonoBehaviour
 
         // Otherwise return background hit
         m_hit.distance = distanceToBackground;
-        m_layerHit = Layer.RaycastEndStop;
+        m_layerHit = Layer.RaycastEndStop; 
     }
 
     RaycastHit? RaycastForLayer(Layer layer)
