@@ -18,9 +18,8 @@ public class CameraRaycaster : MonoBehaviour
         get { return m_hit; }
     }
 
-    Layer m_layerHit;
-    public Layer layerHit
     Layer m_layerHit; // Referece to layer
+    public Layer layerHit // returns on what layer the raycast hits
     {
         get { return m_layerHit; }
     }
