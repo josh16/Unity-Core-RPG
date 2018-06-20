@@ -26,7 +26,7 @@ public class CameraRaycaster : MonoBehaviour
 
     void Start() // TODO Awake?
     {
-        viewCamera = Camera.main; // On Start, we initialize the maon camera
+        viewCamera = Camera.main; // On Start, we initialize the main camera
     }
 
     void Update()
